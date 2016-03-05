@@ -22,8 +22,6 @@ import model.Calc_Imc_Model;
 
 public class CalculadoraImc extends AppCompatActivity {
 
-
-
     private EditText peso;
     private EditText altura;
     private Button btnCalcular;
@@ -32,14 +30,13 @@ public class CalculadoraImc extends AppCompatActivity {
     private Button btnVoltar;
 
     // variáveis do controller e model
-    Calc_Imc_Controller calController;
-    Calc_Imc_Model calModel;
+    private Calc_Imc_Controller calController;
+    private Calc_Imc_Model calModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculadora_imc);
-
 
             altura = (EditText) findViewById(R.id.edtAltura);
             peso = (EditText) findViewById(R.id.edtPeso);
@@ -48,11 +45,8 @@ public class CalculadoraImc extends AppCompatActivity {
             tvResultado = (TextView) findViewById(R.id.tvResultado);
             btnVoltar = (Button) findViewById(R.id.btnVoltarAoNormal);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
     @Override
@@ -73,7 +67,6 @@ public class CalculadoraImc extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -98,7 +91,6 @@ public class CalculadoraImc extends AppCompatActivity {
             //aciona o controller para ele acionar o model para realizar a verificação de cada tipo de imc, o mesmo retorna uma string
             String msg = this.calController.mensagemAoUsuario();
 
-
             linear.setVisibility(View.GONE);
 
             tvResultado.setText(msg);
@@ -122,13 +114,9 @@ public class CalculadoraImc extends AppCompatActivity {
 
     public void voltar(View view){
         view.setVisibility(View.INVISIBLE);
-
         btnCalcular.setVisibility(View.VISIBLE);
-
         tvResultado.setVisibility(View.INVISIBLE);
-
         linear.setVisibility(View.VISIBLE);
-
         altura.setText("");
         peso.setText("");
     }
